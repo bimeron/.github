@@ -1,0 +1,65 @@
+name: Bug report
+description: Report a problem in a Bimeron project.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not report security vulnerabilities here. Follow the
+        [security policy](https://github.com/bimeron/.github/blob/main/SECURITY.md) instead.
+
+        Remove real server addresses, keys and passwords from profiles, logs and screenshots.
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the problem and what you expected to happen instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Import a VLESS profile with the WebSocket transport.
+        2. Connect in system VPN mode.
+        3. Open a website.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Release version or commit. Desktop shows it on the About page; the Core CLI prints it with its `version` command.
+      placeholder: v0.4.0-beta.1
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system and architecture
+      placeholder: Windows 11 24H2, x64
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Connection mode
+      options:
+        - System VPN
+        - Local SOCKS5 proxy
+        - Not related to a connection
+    validations:
+      required: true
+  - type: input
+    id: upstream
+    attributes:
+      label: Upstream protocol and transport
+      description: Leave empty if the problem is not related to a connection.
+      placeholder: VLESS over WebSocket/TLS
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Redacted log output or diagnostics. It is formatted as code automatically.
+      render: text

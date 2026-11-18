@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/bimeron/.github/main/profile/bimeron.png" alt="Bimeron logo" width="64" height="64">
+  <img src="https://raw.githubusercontent.com/bimeron/.github/main/profile/bimeron.png" alt="Bimeron Network logo" width="64" height="64">
 </p>
 
-<h1 align="center">Bimeron</h1>
+<h1 align="center">Bimeron Network</h1>
 
 <p align="center">
   Open-source VPN software: one networking core and native apps built on top of it.

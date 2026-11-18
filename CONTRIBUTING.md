@@ -1,7 +1,7 @@
 # Contributing to Bimeron
 
 Thank you for helping improve Bimeron. This guide applies to every repository in the
-[Bimeron organization](https://github.com/bimeron) unless a repository has its own
+[Bimeron Network organization](https://github.com/bimeron) unless a repository has its own
 `CONTRIBUTING.md`. Build instructions and project-specific rules are in each repository's
 README and `docs/` folder.
 

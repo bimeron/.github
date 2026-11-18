@@ -2,7 +2,7 @@
 
 Bimeron handles network traffic and access credentials, so we treat security reports as a
 priority. This policy applies to every repository in the
-[Bimeron organization](https://github.com/bimeron) unless a repository has its own
+[Bimeron Network organization](https://github.com/bimeron) unless a repository has its own
 `SECURITY.md`.
 
 ## Supported versions
@@ -55,7 +55,7 @@ Please give us a reasonable time to release a fix before you disclose the issue 
 
 ## Scope
 
-In scope: code and release packages published in the Bimeron organization.
+In scope: code and release packages published in the Bimeron Network organization.
 
 Out of scope: third-party VPN or proxy servers, the security of a particular upstream protocol
 itself, and problems that require an already compromised device or administrator access that

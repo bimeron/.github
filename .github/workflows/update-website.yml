@@ -1,0 +1,41 @@
+name: Update website
+
+# Rebuilds https://bimeron.github.io after changes to the files it is generated from.
+# The site build lives in bimeron/bimeron.github.io; this workflow only starts its Deploy
+# workflow for the pushed commit.
+#
+# Requires the SITE_DISPATCH_TOKEN secret: a fine-grained token owned by the bimeron
+# organization with access to bimeron/bimeron.github.io only and the Actions: write permission.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - profile/**
+      - CONTRIBUTING.md
+      - SECURITY.md
+      - SUPPORT.md
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: update-website
+  cancel-in-progress: true
+
+jobs:
+  dispatch:
+    name: Start site deployment
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Run Deploy in bimeron/bimeron.github.io
+        env:
+          GH_TOKEN: ${{ secrets.SITE_DISPATCH_TOKEN }}
+          SOURCE_REF: ${{ github.sha }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::The SITE_DISPATCH_TOKEN secret is not set."
+            exit 1
+          fi
+          gh workflow run deploy.yml --repo bimeron/bimeron.github.io --ref main -f ref="$SOURCE_REF"
+          echo "Started Deploy for bimeron/.github@$SOURCE_REF: https://github.com/bimeron/bimeron.github.io/actions/workflows/deploy.yml" >> "$GITHUB_STEP_SUMMARY"
